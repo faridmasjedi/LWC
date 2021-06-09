@@ -1,0 +1,24 @@
+<template>
+    <div class="divClass">
+        <lightning-layout>
+            <lightning-layout-item padding="around-small" size="4">
+                <lightning-card title="Account Records">
+                    <template for:each={accounts.data} for:item="elm" for:index="index">
+                        <p key={elm.Id} class="slds-p-horizontal_medium">
+                            <a href="#" onclick={clickHandler} data-accountid={elm.Id}>{elm.Name}</a>
+                        </p>
+                        <p key={elm.Id} class="slds-p-horizontal_medium slds-m-bottom_x-small" if:true={elm.Industry}>
+                            Industry: {elm.Industry}
+                        </p>
+                        <p key={elm.Id} class="slds-p-horizontal_medium slds-m-bottom_x-small" if:false={elm.Industry}>
+                            Industry: ---
+                        </p>
+                    </template>
+                </lightning-card>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="8">
+                <c-contact-table account-id={accountidfrmparent}></c-contact-table>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>
