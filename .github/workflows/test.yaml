@@ -1,7 +1,14 @@
+name: checking
+
+on:
+  push:
+    branches: [ master ]
+
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-    - name: check the github ref
-      uses: actions/checkout@v2
-      run: |
-        echo GITHUB_BASE_REF
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses : actions/checkout@v2
+      - name: check the github ref
+        run: |
+          echo GITHUB_BASE_REF
