@@ -1,5 +1,5 @@
 jobs:
-  runs-on: ubunto-latest
+  runs-on: ubuntu-latest
   steps:
     - name: check the github ref
       uses: actions/checkout@v2
